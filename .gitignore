@@ -5,3 +5,5 @@ myenv
 yolo8m.pt
 
 models/*
+
+.env
