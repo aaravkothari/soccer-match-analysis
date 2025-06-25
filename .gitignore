@@ -3,3 +3,5 @@ runs
 myenv
 
 yolo8m.pt
+
+models/*
