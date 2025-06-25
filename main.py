@@ -1,13 +1,13 @@
-from ultralytics import YOLO
-import torch
+from utils import read_video, save_video
+from trackers import Tracker
 
-print("CUDA Available:", torch.cuda.is_available())
-print("GPU:", torch.cuda.get_device_name(0))
+def main():
+    video_frames = read_video('input_videos/08fd33_4.mp4')
 
-model = YOLO("yolov8m.pt")
-results = model.predict(source="input_videos/08fd33_4.mp4", device=0, save=True)
+    tracker = Tracker('models/best.pt')
+    tracks = tracker.get_object_tracks(video_frames)
 
-print(results[0])
-print("==================")
-for box in results[0].boxes:
-    print(box)
+    save_video(video_frames, 'output_videos/output_video.avi')
+
+if __name__ == '__main__':
+    main()

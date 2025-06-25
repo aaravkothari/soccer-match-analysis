@@ -7,3 +7,5 @@ yolo8m.pt
 models/*
 
 .env
+
+output_videos/*
